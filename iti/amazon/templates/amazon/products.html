@@ -1,0 +1,24 @@
+{% extends "amazon/base.html" %}
+{% load static %}
+
+{% block title %}
+products
+{% endblock %}
+
+{% block content %}
+<div class="container col-lg=9 mb-2">
+    <div class="row">
+        {% for p in products %}
+        <div class="card m-2" style="width: 18rem; ">
+            <img src="{% static 'amazon/images/'|add:p.image %}" width=100 height=200 class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{p.title}}</h5>
+              <p class="card-text">{{p.details}}</p>
+              <a href="myproduct/{{p.id}}" class="btn btn-primary">view</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
